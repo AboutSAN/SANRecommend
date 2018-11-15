@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.member.dao.member-mapper">
+  <!-- 우편번호 검색 -->
+  <select id="postFindData" resultType="ZipcodeVO"
+   parameterType="String"
+  >
+    SELECT zipcode,sido,gugun,dong,NVL(bunji,' ') as bunji
+    FROM zipcode 
+    WHERE dong LIKE '%'||#{dong}||'%'
+  </select>
+  <!--  검색결과 -->
+  <select id="postCount" resultType="int" parameterType="String">
+    SELECT COUNT(*)
+    FROM zipcode 
+    WHERE dong LIKE '%'||#{dong}||'%'
+  </select>
+  <!-- ID중복체크 -->
+  <!-- 회원가입 -->
+  <!-- 회원탈퇴 -->
+  <!-- ID찾기 
+       ad*** RPAD
+  -->
+  <!-- 비밀번호 찾기 
+              자바 메일
+  -->
+  <!-- 
+             옵션 : 관리자와 유저,비밀번호변경  
+   -->
+</mapper>

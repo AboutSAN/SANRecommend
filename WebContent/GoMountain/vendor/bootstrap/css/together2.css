@@ -1,0 +1,285 @@
+.togetherBody {
+	margin: 0;
+	padding: 0;
+	padding-top: 56px;
+}
+
+fieldset {
+	padding: 20px;
+	background: #fff;
+	max-width: 500px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	margin: 60px auto;
+	box-sizing: border-box;
+}
+
+.labl {
+	display: block;
+	font: normal bold normal small/1.4em Verdana, sans-serif;
+}
+
+.labla {
+	font: normal bold normal small/1.4em Verdana, sans-serif;
+}
+
+input, select, textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+}
+
+.parag {
+	margin: 3px 0;
+	font: normal 16px calibri;
+}
+
+#nameidinp, #contactidinp, #vehicleidinp {
+	display: none;
+}
+
+.personalinfo {
+	width: 100%;
+	height: 35px;
+	font-size: 14px;
+	margin: 5px 0;
+	text-indent: 5px;
+	border: 1px solid lightgrey;
+	background: white;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.personalinfo:focus {
+	outline: 0;
+	border: 1px solid green;
+}
+
+#altphone
+,
+{
+display
+:
+ 
+none
+;
+
+      
+}
+#pua, #doa, #stop, #cc {
+	display: none;
+}
+
+.continue {
+	width: 100%;
+	height: 40px;
+	max-width: 500px;
+	display: block;
+	color: #fff;
+	font: normal bold normal 18px Verdana, sans-serif;
+	text-shadow: 1px 1px 3px #666666;
+	margin: 20px auto;
+	border: none;
+	background: #32c96f;
+	background-image: linear-gradient(to bottom, #32c96f, #239937);
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.continue:hover {
+	background: #2d7a45;
+	background-image: linear-gradient(to bottom, #2d7a45, #2d7a45);
+}
+
+.rateinp {
+	width: 50px;
+	height: 22px;
+	background: #fff;
+	font-size: 13px;
+	margin: 2px 0;
+	text-indent: 2px;
+	border: 1px solid lightgrey;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.rateinp:focus {
+	outline: 0;
+	border: 1px solid green;
+}
+
+a {
+	text-decoration: none;
+}
+
+.scrt {
+	margin: 7px auto;
+	background: #ff6666;
+	background-image: linear-gradient(to bottom, #ff6666, #e62e00);
+}
+
+.scrt:hover {
+	background: #cc0000;
+	background-image: linear-gradient(to bottom, #cc0000, #cc0000);
+}
+
+.hr {
+	border: 0;
+	height: 1px;
+	background: #333;
+	background-image: linear-gradient(to right, #ccc, #333, #ccc);
+	margin: 10px;
+}
+
+label.error {
+	display: block;
+	color: red;
+	font-style: italic;
+	font-size: 12px;
+}
+
+input.error {
+	border: 1px solid red;
+}
+
+.datediv, .timediv {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.datediv {
+	width: 45%;
+}
+
+.timediv {
+	width: 45%;
+	float: right;
+}
+
+form .cc-number {
+	background-image: url(images/ccimages.png);
+	background-position: 2px -121px, 260px -61px;
+	background-size: 120px 361px, 120px 361px;
+	background-repeat: no-repeat;
+	text-indent: 54px;
+	width: 100%;
+}
+
+form .cc-number.visa {
+	background-position: 2px -163px, 260px -61px;
+}
+
+form .cc-number.visa_electron {
+	background-position: 2px -205px, 260px -61px;
+}
+
+form .cc-number.mastercard {
+	background-position: 2px -247px, 260px -61px;
+}
+
+form .cc-number.amex {
+	background-position: 2px -289px, 260px -61px;
+}
+
+form .cc-number.discover {
+	background-position: 2px -331px, 260px -61px;
+}
+
+.has-error input {
+	border: 1px solid red;
+}
+
+.has-error input:focus {
+	border: 1px solid red;
+}
+
+.has-error2 input {
+	border: 1px solid red;
+}
+
+.has-error2 input:focus {
+	border: 1px solid red;
+}
+
+.has-error3 input {
+	border: 1px solid red;
+}
+
+.has-error3 input:focus {
+	border: 1px solid red;
+}
+
+.validation.text-danger:after {
+	content: 'Credit card is wrong';
+	color: red;
+}
+
+.validation.text-success:after {
+	content: 'Card is Good!';
+	color: green;
+}
+
+#pricetable {
+	width: 100%;
+	font: normal 12px verdana;
+	border-collapse: collapse;
+}
+
+#pricetable td {
+	padding: 3px;
+}
+
+#pricetable td:first-child {
+	text-align: left;
+}
+
+#pricetable td:last-child {
+	text-align: right;
+}
+
+.myCheckbox {
+	float: right;
+	margin: 5px 0;
+}
+
+.myCheckbox span {
+	float: right;
+	text-decoration: underline;
+	color: #666666;
+	cursor: pointer;
+	font: normal bold normal small/1.4em Verdana, sans-serif;
+}
+
+.myCheckbox input {
+	visibility: hidden;
+	z-index: -9999;
+}
+
+.myCheckbox span:after {
+	margin-left: 5px;
+	content: "Airport";
+}
+
+.myCheckbox input:checked+span:after {
+	content: "Address";
+}
+
+@media handheld , only screen and (max-width: 880px) {
+	fieldset {
+		margin: 10px 10px;
+		border: 0px solid lightgrey;
+		padding: 10px;
+	}
+}
