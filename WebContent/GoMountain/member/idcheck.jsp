@@ -13,6 +13,7 @@
 }
 
 </style>
+<<<<<<< HEAD
 <!-- 라이브러리 import -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <!-- 처리(이벤트)  -->
@@ -69,6 +70,86 @@ function ok(id)
 	parent.joinFrm.id.value=id;
 	parent.Shadowbox.close();
 }
+=======
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	/* $(document).ready(function(){
+		아래의 함수와 같은 기능을 한다.	
+	}) */
+	$(function(){
+		$('#idBtn').click(function(){
+			//처리 ==> 버튼 클릭시 처리 영역
+			var id=$('#id').val();
+			/*
+				1) val()
+					input태그, select태그, textarea
+				2) text()
+					td,th,h...
+					<h1><span>aaa</span></h1> : aaa을 읽어옴
+				3) html()
+					<h1><span>aaa</span></h1> : <span>aaa</span>을 읽어옴
+				4) attr()
+					<a> <img> 속성값 읽기
+				
+				태그 읽기
+				$('.명') ==> class
+				$('#명') ==> id
+				$('태그명') : getElementByTagName()
+				
+				이벤트
+					click => onClick()
+					change => onChange()
+					hover => onMouseOver()
+					keyup => onKeyup()
+				ex) 태그명.click(function(){
+				})
+					태그명.change(function(){
+				}) 등등 같이 쓰인다.
+			*/
+			if(id.trim()=="")
+			{
+				$('#id').focus();
+				return;
+			}
+			// id를 모델로 보내야한다.
+			$.ajax({
+				type:'post',
+				url:'idcheck_ok.do',
+				data:{"id":id},
+				success:function(response)
+				{
+					var count=response.trim();
+					/* alert(count); */
+					if(count==0)
+					{
+						$('#result').html("<font color=blue>"
+								+id+"는(은) 사용 가능합니다.</font>");
+						$('#ok').html("<input type=button "+"id=idok value=확인 onclick=ok('"+id+"')>")
+					}
+					else
+					{
+						$('#result').html("<font color=red>"
+								+id+"는(은) 이미 사용중입니다.</font>");
+					}
+				}
+				/*
+				error:function(res)
+				{
+					이렇게 하면 에러처리도 가능하다.
+				}
+				*/
+			});
+			
+		});
+	});
+	
+	function ok(id)
+	{
+		parent.joinFrm.id.value=id;
+		parent.Shadowbox.close();
+		
+	}
+>>>>>>> branch 'master' of https://github.com/AboutSAN/SANRecommend.git
 </script>
 </head>
 <body>

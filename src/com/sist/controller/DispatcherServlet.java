@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 /*
  *    DispatcherServlet
  *    =================
- *      web.xml (XML·Î µî·ÏµÈ ÆÐÅ°Áö)
- *    ==>HandlerMapping Àü¼Û : XML ÆÄ½Ì 
- *    ==>ÆÄ½ÌµÈ XMLÄÚµå¸¦ 
- *    ==>FileChange·Î Àü¼Û : classÀÌ¸§ ¸¸µç´Ù 
+ *      web.xml (XMLï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½Å°ï¿½ï¿½)
+ *    ==>HandlerMapping ï¿½ï¿½ï¿½ï¿½ : XML ï¿½Ä½ï¿½ 
+ *    ==>ï¿½Ä½Ìµï¿½ XMLï¿½Úµå¸¦ 
+ *    ==>FileChangeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : classï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
  */
 import java.util.*;
 public class DispatcherServlet extends HttpServlet {
@@ -31,10 +31,10 @@ public class DispatcherServlet extends HttpServlet {
 		      <param-name>contextConfigLocation</param-name>
 		      <param-value>C:\webDev\webStudy2\MVCIncudeProject\WebContent\WEB-INF\application.xml</param-value>
 		    </init-param>
-		    mapÇü½Ä : key,value ==> °ªÀ» ¾ò±â:key¸¦ º¸³½´Ù 
+		    mapï¿½ï¿½ï¿½ï¿½ : key,value ==> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½:keyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		    
 		    
-		    XML ==> ÆÄ½Ì 
+		    XML ==> ï¿½Ä½ï¿½ 
 		 */
 		HandlerMapping hm=new HandlerMapping(path);
 		FileChange fc=new FileChange();

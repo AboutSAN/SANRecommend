@@ -5,12 +5,11 @@
  // 자바스크립트 => 매개변수 (데이터형은 사용하지 않는다)
  function ok(zip,addr)
  {
-	 // 000-000
 	 parent.joinFrm.post1.value=zip.substring(0,3);
 	 parent.joinFrm.post2.value=zip.substring(4,7);
 	 parent.joinFrm.addr1.value=addr;
+	/*  alert("ok눌림: "+zip.substring(0,3)+" "+zip.substring(4,7)+" "+addr); */
 	 parent.Shadowbox.close();
-	 
  }
 </script>
 <c:if test="${count==0 }">
