@@ -5,12 +5,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type="text/css">
+.row{
+  margin: 0px auto;
+  width:450px;
+}
 
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#postBtn').click(function(){
+		var dong=$('#dong').val();
+		if(dong.trim()=="")
+		{
+			// 입력 안된 경우 
+			$('#dong').focus();
+			return;
+		}
+		// dong=>결과값 받기  => ?dong=신촌
+		$.ajax({
+			type:'POST',
+			url:'postfind_ok.do',
+			data:{"dong":dong},
+			success:function(res)
+			{
+				$('#result').html(res);
+			}
+			/* error:function(res)
+			{
+				
+			} */
+		});
+	});
+});
 </script>
 </head>
 <body>
-	<div class="row">
+   <div class="container">
+     <div class="row">
       <table class="table">
        <tr>
         <td>
@@ -25,3 +59,7 @@
    </div>
 </body>
 </html>
+
+
+
+

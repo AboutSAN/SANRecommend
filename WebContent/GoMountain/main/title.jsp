@@ -9,9 +9,11 @@
 
 </head>
 <body>
+<div class="titlebar">
 	<div class="bg9" style="height: 450px"></div>
 	<h1 class="hh">
 		Go<br />Mountain<br />Together
 	</h1>
+</div>
 </body>
 </html>

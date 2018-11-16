@@ -12,7 +12,7 @@ public class FileChange {
 	{
 		try
 		{
-			String path="C:\\Users\\sohee\\git\\san\\Mountain2\\src\\";
+			String path="C:\\Users\\user\\git\\SANRecommend\\src\\";
 			for(String pack:pList)
 			{
 				String s=pack.replace(".", "\\");
@@ -29,7 +29,6 @@ public class FileChange {
 					 *  B.java
 					 *  C.xml
 					 */
-					// 파일의 확장자
 					if(ext.equals("java"))
 					{
 						String model=pack+"."+f.getName().substring(0,f.getName().lastIndexOf("."));

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sist.member.dao.member-mapper">
+<mapper namespace="com.sist.mt.member.member-mapper">
   <!-- 우편번호 검색 -->
   <select id="postFindData" resultType="ZipcodeVO"
    parameterType="String"
@@ -16,6 +16,40 @@
     FROM zipcode 
     WHERE dong LIKE '%'||#{dong}||'%'
   </select>
+  <select id="idCheck" resultType="int" parameterType="String">
+		SELECT COUNT(*)
+		FROM mt_member
+		WHERE member_id=#{id}
+	</select>
+	<!-- 
+	MEMBER_ID    NOT NULL VARCHAR2(20) 
+	MEMBER_PWD   NOT NULL VARCHAR2(20) 
+	MEMBER_SEX   NOT NULL VARCHAR2(4)  
+	MEMBER_ADDR1 NOT NULL VARCHAR2(50) 
+	MEMBER_NAME  NOT NULL VARCHAR2(50) 
+	MEMBER_PLACE NOT NULL VARCHAR2(50) 
+	MEMBER_TEL   NOT NULL VARCHAR2(50) 
+	MEMBER_AGE   NOT NULL NUMBER       
+	MEMBER_ADMIN NOT NULL NUMBER       
+	MEMBER_ADDR2 NOT NULL VARCHAR2(50) 
+	REGDATE               DATE  
+	
+	 -->
+	<insert id="memberJoin" parameterType="MemberVO">
+		INSERT INTO mt_member VALUES(
+		#{Member_id},
+		#{Member_pwd},
+		#{Member_sex},
+		#{Member_addr1},
+		#{Member_name},
+		#{Member_place},
+		#{Member_tel},
+		#{Member_age},
+		#{Member_admin},
+		#{Member_addr2},
+		SYSDATE
+		)
+	</insert>
   <!-- ID중복체크 -->
   <!-- 회원가입 -->
   <!-- 회원탈퇴 -->
