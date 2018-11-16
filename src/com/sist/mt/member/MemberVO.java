@@ -3,6 +3,7 @@ package com.sist.mt.member;
 public class MemberVO {
   private String Member_id;
   private String Member_pwd;
+  private String Member_name;
   private String Member_sex;
   private String Member_addr;
   private String Member_level;
@@ -12,6 +13,12 @@ public class MemberVO {
   private int Member_admin;
 public String getMember_id() {
 	return Member_id;
+}
+public String getMember_name() {
+	return Member_name;
+}
+public void setMember_name(String member_name) {
+	Member_name = member_name;
 }
 public void setMember_id(String member_id) {
 	Member_id = member_id;

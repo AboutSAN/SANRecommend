@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 Shadowbox.init({
 	players:["iframe"]
@@ -14,12 +14,13 @@ Shadowbox.init({
 function idcheck()
 {
 	Shadowbox.open({
-		content:'member/idcheck.do',
+		content:'idcheck.do',
 		title:'아이디중복체크',
 		player:'iframe',
 		width:300,
 		height:150
 	});
+	
 	
 }
 // .do ==> ~Model
@@ -32,6 +33,26 @@ function postfind()
 		width:480,
 		height:350
 	});
+}
+function login()
+{
+	var loginid=$('#loginid').val();
+	if(loginid.trim()=="")
+	{
+	    $('#loginid').focus();
+	    return;
+	}
+	var pwd=$('#password').val();
+	if(pwd.trim()=="")
+	{
+	    $('#password').focus();
+	    return;
+	}
+	
+	$('#login-form').submit();
+}
+function findpwd()
+{
 }
 </script>
 </head>
@@ -54,10 +75,11 @@ function postfind()
                <div class="panel-body">
                   <div class="row">
                      <div class="col-lg-12">
-                        <form id="login-form" action="https://phpoll.com/login/process"
+                     <%-- Login Form --%>
+                        <form id="login-form" action="login_ok.do"
                            method="post" role="form" style="display: block;">
                            <div class="form-group">
-                              <input type="text" name="username" id="idcheck()" tabindex="1"
+                              <input type="text" name="loginid" id="loginid" tabindex="1"
                                  class="form-control" placeholder="아이디" value="">
                            </div>
                            <div class="form-group">
@@ -69,23 +91,18 @@ function postfind()
                                  id="remember"> <label for="remember">
                                  Remember Me</label>
                            </div> -->
-                           <div class="form-group">
-                              <div class="row">
-                                 <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit" name="login-submit" id="login-submit"
-                                       tabindex="4" class="form-control btn btn-login" value="로그인">
+                           <div class="row">
+                                 <div class="col-sm-6">
+                                    <input type="button" name="login-submit" id="login-submit"
+                                       tabindex="4" class="form-control btn btn-login" value="로그인" onclick="login()">
                                  </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="row">
-                                 <div class="col-lg-12">
-                                    <div class="text-center">
-                                       <a href="https://phpoll.com/recover" tabindex="5"
-                                          class="forgot-password">비밀번호찾기</a>
-                                    </div>
+                           <%-- Login End --%>
+                                 <div class="col-sm-6">
+                                       <!-- <a href="#" tabindex="5"
+                                          class="forgot-password">비밀번호찾기</a> -->
+                                       <input type="button" name="login-findpwd" id="login-findpwd"
+                                          tabindex="4" class="form-control btn btn-login" value="비밀번호찾기" onclick="findpwd()"> 
                                  </div>
-                              </div>
                            </div>
                         </form>
                         <form id="register-form"

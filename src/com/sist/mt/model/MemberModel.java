@@ -2,6 +2,7 @@ package com.sist.mt.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.RequestMapping;
 import com.sist.mt.member.MemberDAO;
@@ -21,11 +22,36 @@ public class MemberModel {
 	  req.setAttribute("main_jsp","../member/join.jsp");
 	  return "../main/main.jsp";
   }*/
-  @RequestMapping("GoMountain/loginjoin.do")
-  public String member_login(HttpServletRequest req,HttpServletResponse res)
-  {
-	  return "../member/login.jsp";
-  }
+	@RequestMapping("GoMountain/login_ok.do")
+	  public String member_login_ok(HttpServletRequest req,HttpServletResponse res)
+	  {
+		  String loginid=req.getParameter("loginid");
+		  String pwd=req.getParameter("password");
+		  System.out.println("==============="+loginid+"|"+pwd);
+		  //DB연동 
+		  String result=MemberDAO.isLogin(loginid, pwd);
+		  if(!(result.equals("NOID")&& result.equals("NOPWD")))
+		  {
+			  // 로그인이 되었을때
+			  HttpSession session=req.getSession();
+			  // session을 가지고 온다 
+			  session.setAttribute("loginid", loginid);
+			  session.setAttribute("name", result);
+			  
+			  // session에 저장
+		  }
+		  req.setAttribute("res", result);
+		  return "member/login_ok.jsp";
+	  }
+	
+	@RequestMapping("GoMountain/logout.do")
+	  public String member_logout(HttpServletRequest req,HttpServletResponse res)
+	  {
+			HttpSession session=req.getSession();
+			session.invalidate();
+			
+			return "redirect:main.do";
+	  }
   // .do => Model
   @RequestMapping("GoMountain/postfind.do")
   public String member_postfind(HttpServletRequest req,HttpServletResponse res)
@@ -48,7 +74,25 @@ public class MemberModel {
 	     req.setAttribute("list", list);
 	     
 	  }catch(Exception ex){}
-	  return "../member/postfind_ok.jsp";
+	  return "member/postfind_ok.jsp";
+  }
+  
+  
+  @RequestMapping("GoMountain/idcheck_ok.do")
+  public String member_idcheck_ok(HttpServletRequest req,HttpServletResponse res)
+  {
+	  	  // DB연동 
+		  String id=req.getParameter("id");
+		  int count=MemberDAO.idcheck(id);
+		  
+		  req.setAttribute("count", count);
+		  return "member/idcheck_ok.jsp";
+  }
+  
+  @RequestMapping("GoMountain/idcheck.do")
+  public String member_idcheck(HttpServletRequest req,HttpServletResponse res)
+  {
+		  return "member/idcheck.jsp";
   }
 }
 

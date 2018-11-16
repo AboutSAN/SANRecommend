@@ -6,10 +6,9 @@
  -->
 <configuration>
   <!-- vo등록 -->
-  <!-- <typeAliases>
-    <typeAlias type="" alias=""/>
-    <typeAlias type="" alias=""/>
-  </typeAliases> -->
+  <typeAliases>
+    <typeAlias type="com.sist.mt.member.MemberVO" alias="MemberVO"/>
+  </typeAliases>
   <!-- 데이터베이스 정보 -->
   <environments default="development">
     <environment id="development">
@@ -25,7 +24,7 @@
   <!-- SQL문장 등록 -->
   <mappers>
   <!-- mapper : include -->
-<!--     <mapper resource=""/> -->
+    <mapper resource="com/sist/mt/member/member-mapper.xml"/>
   </mappers>
 </configuration>
 

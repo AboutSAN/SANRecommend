@@ -9,8 +9,7 @@
 
     <meta charset="EUC-KR">
 
-    <title></title
-    >
+    <title></title>
     
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/mypage.css">
