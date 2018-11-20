@@ -33,7 +33,23 @@ function postfind()
 		height:350
 	});
 }
+function login()
+{
+   var loginid=$('#loginid').val();
+   if(loginid.trim()=="")
+   {
+       $('#loginid').focus();
+       return;
+   }
+   var pwd=$('#password').val();
+   if(pwd.trim()=="")
+   {
+       $('#password').focus();
+       return;
+   }
 
+   $('#login-form').submit();
+}
 </script>
 </head>
 <body>
@@ -54,9 +70,9 @@ function postfind()
                <div class="panel-body">
                   <div class="row">
                      <div class="col-lg-12">
-                        <form id="Login-form">
+                        <form id="login-form" action="login_ok.do" method="post" name="login-form">
                            <div class="form-group">
-                              <input type="text" name="username" id="idcheck()" tabindex="1"
+                              <input type="text" name="loginid" id="loginid" tabindex="1"
                                  class="form-control" placeholder="아이디" value="" style="width:40%;">
                            </div>
                            <div class="form-group">
@@ -71,7 +87,7 @@ function postfind()
                            <div class="form-group">
                               <div class="row">
                                  <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit" name="login-submit" id="login-submit"
+                                    <input type="button" name="login-submit" id="login-submit" onclick="login()"
                                        tabindex="4" class="form-control btn btn-login" value="로그인">
                                  </div>
                               </div>

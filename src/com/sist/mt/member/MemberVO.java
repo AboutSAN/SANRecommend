@@ -11,7 +11,14 @@ public class MemberVO {
   private String Member_tel;
   private int Member_age;
   private int Member_admin;
+  private String Member_post;
   
+public String getMember_post() {
+	return Member_post;
+}
+public void setMember_post(String member_post) {
+	Member_post = member_post;
+}
 public String getMember_id() {
 	return Member_id;
 }

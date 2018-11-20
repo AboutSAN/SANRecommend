@@ -47,9 +47,21 @@
 		#{Member_age},
 		#{Member_admin},
 		#{Member_addr2},
-		SYSDATE
+		SYSDATE,
+		#{Member_post}
 		)
 	</insert>
+	
+	<select id="idCount" resultType="int" parameterType="String">
+    SELECT COUNT(*)
+    FROM mt_member
+    WHERE member_id=#{loginid}
+  </select>
+  <select id="memberGetPwd" resultType="MemberVO" parameterType="String">
+   SELECT member_pwd, member_name
+   FROM mt_member
+   WHERE member_id=#{loginid}
+  </select>
   <!-- ID중복체크 -->
   <!-- 회원가입 -->
   <!-- 회원탈퇴 -->

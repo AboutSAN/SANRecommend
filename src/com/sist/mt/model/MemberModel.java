@@ -2,6 +2,7 @@ package com.sist.mt.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.RequestMapping;
 import com.sist.mt.member.MemberDAO;
@@ -74,6 +75,36 @@ public class MemberModel {
 	  }catch(Exception ex){}
 	  return "member/idcheck_ok.jsp";
   }
+  @RequestMapping("GoMountain/login_ok.do")
+  public String member_login_ok(HttpServletRequest req,HttpServletResponse res)
+  {
+     String loginid=req.getParameter("loginid");
+     String pwd=req.getParameter("password");
+     System.out.println("==============="+loginid+"|"+pwd);
+     //DB연동 
+     String result=MemberDAO.isLogin(loginid, pwd);
+     if(!(result.equals("NOID")&& result.equals("NOPWD")))
+     {
+        // 로그인이 되었을때
+        HttpSession session=req.getSession();
+        // session을 가지고 온다 
+        session.setAttribute("loginid", loginid);
+        session.setAttribute("name", result);
+        
+        // session에 저장
+     }
+     req.setAttribute("res", result);
+     return "member/login_ok.jsp";
+  }
+
+@RequestMapping("GoMountain/logout.do")
+  public String member_logout(HttpServletRequest req,HttpServletResponse res)
+  {
+      HttpSession session=req.getSession();
+      session.invalidate();
+      
+      return "redirect:main.do";
+  }
   @RequestMapping("GoMountain/join.do")
   public String member_join(HttpServletRequest req,HttpServletResponse res)
   {
@@ -97,8 +128,8 @@ public class MemberModel {
 		  System.out.println(place);
 		  place = place.substring(0,place.indexOf(" ")+1);
 		  String tel =req.getParameter("tel1")+"-"+req.getParameter("tel2")+"-"+req.getParameter("tel3");
+		  String post = req.getParameter("post1")+"-"+req.getParameter("post2");
 		  /*System.out.println("변경후:"+place + "전화:"+tel +"성별:"+req.getParameter("sex"));*/
-		  
 		  
 		  
 		  MemberVO vo = new MemberVO();
@@ -112,12 +143,12 @@ public class MemberModel {
 		  vo.setMember_age(Integer.parseInt(req.getParameter("age")));
 		  vo.setMember_admin(0);
 		  vo.setMember_addr2(req.getParameter("addr2"));
+		  vo.setMember_post(post);
 		  System.out.println("변경후:"+vo.getMember_place());
 		  MemberDAO.memberJoin(vo);
 	  }catch (Exception e) {
 		// TODO: handle exception
 	}
-	  
 	  return "redirect:../GoMountain/main.do";
   }
 }

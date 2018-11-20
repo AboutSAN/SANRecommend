@@ -52,6 +52,42 @@ public class MemberDAO {
 		}
 		return count;
 	}
+	
+	// 로그인 처리
+	 public static String isLogin(String loginid,String pwd)
+	 {
+	      String result="";
+	      SqlSession session=null;
+	      try
+	      {
+	         session=ssf.openSession();
+	         int count=session.selectOne("idCount",loginid);
+	         if(count==0)
+	         {
+	            result="NOID";
+	         }
+	         else
+	         {
+	            MemberVO vo=session.selectOne("memberGetPwd", loginid);
+	            if(pwd.equals(vo.getMember_pwd()))
+	            {
+	               result=vo.getMember_name();
+	            }
+	            else
+	            {
+	               result="NOPWD";
+	            }
+	         }
+	      }catch(Exception ex)
+	      {
+	         ex.printStackTrace();
+	      }
+	      finally
+	      {
+	         session.close();
+	      }
+	      return result;
+	 }
 
 	public static int idCheck(String id) {
 		int count = 0;
